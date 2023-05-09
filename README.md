@@ -1,6 +1,6 @@
-# Proiect_Maui_PDM
+# Proiect_Kotlin_PDM
 ## Tema Proiect:
-__Omnifood - Your AI Chef__
+__TBD__
 
 ## Date despre autori
 
