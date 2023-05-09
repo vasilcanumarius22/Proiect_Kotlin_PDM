@@ -11,6 +11,6 @@ __TBD__
 
 ### Autori/Studenti:
 - VASILCANU Marius Daniel
-- PĂDUCEL Alexandru Gabriel
+- PĂDUCEL Alexandru-Gabriel
 - OANĂ Andreea Ramona
 - STAN Adrian Gabriel
