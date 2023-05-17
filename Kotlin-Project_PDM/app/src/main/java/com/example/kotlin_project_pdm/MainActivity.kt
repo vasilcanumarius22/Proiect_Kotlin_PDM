@@ -2,6 +2,8 @@ package com.example.kotlin_project_pdm
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
+import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -21,8 +23,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val username = intent.getStringExtra("username")
+        val email = intent.getStringExtra("email")
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
+        val headerView: View = navigationView.getHeaderView(0)
+
+        val textViewUsername: TextView = headerView.findViewById(R.id.tvHeaderUsername)
+        val textViewEmail: TextView = headerView.findViewById(R.id.tvHeaderEmail)
+
+        textViewUsername.text=username
+        textViewEmail.text=email
 
         setSupportActionBar(binding.appBarMain.toolbar)
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_register"
+    tools:context=".ui.register.RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:textSize="50dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="10dp"
+            android:text="Register"></TextView>
+
+        <ImageView
+            android:id="@+id/imageRegister"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/ic_weather_register"></ImageView>
+
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/registerEtUsername"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_rounded_bg"
+        android:hint="Username"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="60dp"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/registerEtEmail"
+        android:background="@drawable/edittext_rounded_bg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="60dp"
+        android:hint="Email"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/registerEtPassword"
+            android:background="@drawable/edittext_rounded_bg"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/registerImgPassword"
+            android:src="@drawable/baseline_visibility_off_24"></ImageView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/registerEtConfirmPassword"
+            android:background="@drawable/edittext_rounded_bg"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/registerConfirmImgPassword"
+            android:src="@drawable/baseline_visibility_off_24"></ImageView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="200dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/skyblue"
+        android:layout_height="60dp"
+        android:text="Register" />
+</LinearLayout>
