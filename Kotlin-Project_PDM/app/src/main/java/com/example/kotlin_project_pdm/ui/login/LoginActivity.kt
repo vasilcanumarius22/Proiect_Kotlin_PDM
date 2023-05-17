@@ -65,7 +65,6 @@ class LoginActivity : AppCompatActivity() {
                     val username = dbHelper.getUsernameByEmailAndPassword(email, password)
                     val intent = Intent(this, MainActivity::class.java)
                     intent.putExtra("username", username)
-                    intent.putExtra("email", email)
                     startActivity(intent)
 
                 } else {
