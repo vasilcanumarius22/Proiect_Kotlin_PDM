@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val username = intent.getStringExtra("username")
-        val email = intent.getStringExtra("email")
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -33,10 +32,8 @@ class MainActivity : AppCompatActivity() {
         val headerView: View = navigationView.getHeaderView(0)
 
         val textViewUsername: TextView = headerView.findViewById(R.id.tvHeaderUsername)
-        val textViewEmail: TextView = headerView.findViewById(R.id.tvHeaderEmail)
 
-        textViewUsername.text=username
-        textViewEmail.text=email
+        textViewUsername.text="Hello, "+username+"!"
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
