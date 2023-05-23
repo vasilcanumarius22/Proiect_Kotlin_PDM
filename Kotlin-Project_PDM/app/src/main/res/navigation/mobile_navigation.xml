@@ -22,4 +22,10 @@
         android:name="com.example.kotlin_project_pdm.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <activity
+        android:id="@+id/nav_weather"
+        android:name="com.example.kotlin_project_pdm.WeatherActivity"
+        android:label="Weather"
+        tools:layout="@layout/activity_weather" />
 </navigation>
