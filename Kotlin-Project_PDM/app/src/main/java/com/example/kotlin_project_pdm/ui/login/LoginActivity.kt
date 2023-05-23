@@ -23,10 +23,11 @@ class LoginActivity : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.loginEtEmail)
         val passwordEditText = findViewById<EditText>(R.id.loginEtPassword)
         val showPasswordImageView = findViewById<ImageView>(R.id.loginImgPassword)
-        val buttonLogin=findViewById<Button>(R.id.buttonLogin)
+        val buttonLogin = findViewById<Button>(R.id.buttonLogin)
 
         var isPasswordVisible = false
-        passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        passwordEditText.inputType =
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
         showPasswordImageView.setOnClickListener {
             isPasswordVisible = !isPasswordVisible
@@ -34,7 +35,8 @@ class LoginActivity : AppCompatActivity() {
                 passwordEditText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
                 showPasswordImageView.setImageResource(R.drawable.baseline_visibility_24)
             } else {
-                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                passwordEditText.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 showPasswordImageView.setImageResource(R.drawable.baseline_visibility_off_24)
             }
             passwordEditText.setSelection(passwordEditText.text.length)
@@ -43,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
         fun isEmailValid(email: String): Boolean {
             return email.isNotBlank()
         }
+
         fun isPasswordValid(password: String): Boolean {
             return password.isNotBlank()
         }
@@ -59,16 +62,23 @@ class LoginActivity : AppCompatActivity() {
             } else if (!isPasswordValid(password)) {
                 passwordEditText.error = "Enter a password"
                 return@setOnClickListener
-            } else{
+            } else {
                 if (dbHelper.checkUser(email, password)) {
-                    Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT)
+                        .show()
                     val username = dbHelper.getUsernameByEmailAndPassword(email, password)
                     val intent = Intent(this, MainActivity::class.java)
                     intent.putExtra("username", username)
                     startActivity(intent)
 
                 } else {
-                    Toast.makeText(applicationContext, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Invalid Credentials", Toast.LENGTH_SHORT)
+                        .show()
+                    // TODO: DELETE THE NEXT 3 LINES OF CODE AFTER THE LOGIN WORKS
+                    //  AND COMMENT THEM WHILE FIXING LOGIN
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("username", "user")
+                    startActivity(intent)
                 }
             }
         }
