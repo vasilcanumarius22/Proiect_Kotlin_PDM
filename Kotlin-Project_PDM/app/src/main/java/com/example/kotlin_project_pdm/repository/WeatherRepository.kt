@@ -12,7 +12,7 @@ class WeatherRepository {
         .build()
 
     private val api = Retrofit.Builder()
-        .baseUrl("http://api.openweathermap.org/")
+        .baseUrl("https://api.openweathermap.org/")// imi da eroare daca nu e secure
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
         .create(WeatherAPI::class.java)
