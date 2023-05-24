@@ -2,6 +2,7 @@ package com.example.kotlin_project_pdm
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -38,6 +39,20 @@ class WeatherActivity : AppCompatActivity() {
 
         // Fetch weather for Bucharest by default
         viewModel.fetchWeather("Bucharest")
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
 
