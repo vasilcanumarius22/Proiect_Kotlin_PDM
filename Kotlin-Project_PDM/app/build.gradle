@@ -64,5 +64,7 @@ dependencies {
 
     // Location Services
     implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation "androidx.activity:activity:1.6.0-alpha05"
+
 
 }

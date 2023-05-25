@@ -5,6 +5,8 @@ import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
+import android.os.Looper
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
@@ -15,13 +17,13 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.kotlin_project_pdm.ui.weather.WeatherViewModel
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import java.util.Locale
+import com.google.android.gms.location.*
+import java.util.*
 
 class WeatherActivity : AppCompatActivity() {
     private lateinit var viewModel: WeatherViewModel
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var locationCallback: LocationCallback
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +35,7 @@ class WeatherActivity : AppCompatActivity() {
 
         val cityInput = findViewById<EditText>(R.id.cityInput)
         val fetchButton = findViewById<Button>(R.id.fetchButton)
-        val locationButton = findViewById<Button>(R.id.locationButton) // Add this line
+        val locationButton = findViewById<Button>(R.id.locationButton)
         val weatherText = findViewById<TextView>(R.id.weatherText)
         val cityNameText = findViewById<TextView>(R.id.cityNameText)
 
@@ -41,7 +43,7 @@ class WeatherActivity : AppCompatActivity() {
             viewModel.fetchWeather(cityInput.text.toString())
         }
 
-        locationButton.setOnClickListener { // Add this code block
+        locationButton.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.ACCESS_FINE_LOCATION
@@ -55,7 +57,7 @@ class WeatherActivity : AppCompatActivity() {
                     0
                 )
             } else {
-                getLastLocation()
+                requestLocationUpdates()
             }
         }
 
@@ -83,40 +85,26 @@ class WeatherActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
     @SuppressLint("MissingPermission")
-    private fun getLastLocation() {
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            return
-        }
-
-        fusedLocationProviderClient.lastLocation.addOnSuccessListener { location ->
-            location?.let {
-                try {
-                    val geocoder = Geocoder(this, Locale.getDefault())
-                    val addresses = geocoder.getFromLocation(it.latitude, it.longitude, 1)
-                    addresses?.let { addr ->
-                        if (addr.isNotEmpty()) {
-                            val cityName = addr[0].locality ?: return@let
-                            viewModel.fetchWeather(cityName)
-                        }
+    private fun requestLocationUpdates() {
+        fusedLocationProviderClient.getCurrentLocation(LocationRequest.PRIORITY_HIGH_ACCURACY, null).addOnSuccessListener { location ->
+            if (location != null) {
+                val geocoder = Geocoder(this@WeatherActivity, Locale.getDefault())
+                val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+                addresses?.let { addr ->
+                    if (addr.isNotEmpty()) {
+                        val cityName = addr[0].locality ?: return@let
+                        viewModel.fetchWeather(cityName)
                     }
-                } catch (exception: Exception) {
-                    exception.printStackTrace()
-                    // Handle the error accordingly
                 }
             }
         }
-
     }
-
+    
+    override fun onPause() {
+        super.onPause()
+        fusedLocationProviderClient.removeLocationUpdates(locationCallback)
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -127,10 +115,9 @@ class WeatherActivity : AppCompatActivity() {
 
         when (requestCode) {
             0 -> {
-                // If request is cancelled, the result arrays are empty.
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                     // Permission was granted, get the location
-                    getLastLocation()
+                    requestLocationUpdates()
                 } else {
                     // Permission denied, disable the functionality that depends on this permission.
                     Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
@@ -142,5 +129,4 @@ class WeatherActivity : AppCompatActivity() {
             }
         }
     }
-
 }
