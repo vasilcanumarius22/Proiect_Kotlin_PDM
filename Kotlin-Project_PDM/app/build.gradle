@@ -62,4 +62,9 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
 
+    // Location Services
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation "androidx.activity:activity:1.6.0-alpha05"
+
+
 }
