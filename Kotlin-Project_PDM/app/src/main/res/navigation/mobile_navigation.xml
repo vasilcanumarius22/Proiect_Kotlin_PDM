@@ -26,6 +26,6 @@
     <activity
         android:id="@+id/nav_weather"
         android:name="com.example.kotlin_project_pdm.WeatherActivity"
-        android:label="Weather"
+        android:label="@string/menu_weather"
         tools:layout="@layout/activity_weather" />
 </navigation>
