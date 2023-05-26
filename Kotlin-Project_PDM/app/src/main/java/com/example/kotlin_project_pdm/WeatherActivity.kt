@@ -100,11 +100,12 @@ class WeatherActivity : AppCompatActivity() {
             }
         }
     }
-    
-    override fun onPause() {
-        super.onPause()
-        fusedLocationProviderClient.removeLocationUpdates(locationCallback)
-    }
+
+    // Commented this because app crashes when i click back btn after fetch weather
+//    override fun onPause() {
+//        super.onPause()
+//        fusedLocationProviderClient.removeLocationUpdates(locationCallback)
+//    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
