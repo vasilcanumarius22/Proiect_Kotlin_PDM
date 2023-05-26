@@ -1,5 +1,6 @@
 package com.example.kotlin_project_pdm
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -37,6 +38,11 @@ class MainActivity : AppCompatActivity() {
         val textViewUsername: TextView = headerView.findViewById(R.id.tvHeaderUsername)
 
         textViewUsername.text="Hello, "+username+"!"
+
+        val sp = this.getSharedPreferences("favoritesSP", Context.MODE_PRIVATE)
+        val editor = sp.edit()
+        editor.putString("username", username)
+        editor.apply()
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
