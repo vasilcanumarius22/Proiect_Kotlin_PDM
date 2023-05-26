@@ -1,12 +1,10 @@
-package com.example.kotlin_project_pdm
+package com.example.kotlin_project_pdm.ui.weather
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
-import android.os.Looper
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
@@ -16,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import com.example.kotlin_project_pdm.ui.weather.WeatherViewModel
+import com.example.kotlin_project_pdm.R
 import com.google.android.gms.location.*
 import java.util.*
 
