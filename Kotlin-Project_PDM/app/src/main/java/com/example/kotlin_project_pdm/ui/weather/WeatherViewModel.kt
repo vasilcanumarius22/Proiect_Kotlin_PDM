@@ -1,5 +1,6 @@
 package com.example.kotlin_project_pdm.ui.weather
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,10 +14,13 @@ class WeatherViewModel : ViewModel() {
     val cityNameLiveData = MutableLiveData<String>()
 
     fun fetchWeather(city: String) {
+        Log.i("WeatherViewModel", "fetchWeather called with city: $city")
+
         cityNameLiveData.postValue(city) // Post the city name to the live data
         viewModelScope.launch {
             val weather = repository.getWeather(city)
             weatherLiveData.postValue(weather)
         }
     }
+
 }

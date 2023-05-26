@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.example.kotlin_project_pdm.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -29,8 +30,19 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
+
+        // Reading the temperature type from SharedPreferences
+        var text = "test"
+        text = activity?.let {
+            PreferenceManager.getDefaultSharedPreferences(it.getApplicationContext())
+                .getString("tip_temperatura", null).toString()
+        }.toString()
+
+
+
         homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+
+            textView.text = if (text != "null") text else "Trebuie ales din setari un tip de temperatura"
         }
         return root
     }
