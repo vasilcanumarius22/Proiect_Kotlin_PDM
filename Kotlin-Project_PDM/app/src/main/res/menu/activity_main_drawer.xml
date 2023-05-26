@@ -22,5 +22,9 @@
             android:icon="@drawable/umbrella"
             android:title="@string/menu_weather" />
 
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/umbrella"
+            android:title="@string/CONTACT" />
     </group>
 </menu>
