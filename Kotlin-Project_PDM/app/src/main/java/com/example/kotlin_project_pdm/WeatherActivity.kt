@@ -37,6 +37,7 @@ class WeatherActivity : AppCompatActivity() {
         val fetchButton = findViewById<Button>(R.id.fetchButton)
         val locationButton = findViewById<Button>(R.id.locationButton)
         val weatherText = findViewById<TextView>(R.id.weatherText)
+        val temperatureText = findViewById<TextView>(R.id.temperatureText)
         val cityNameText = findViewById<TextView>(R.id.cityNameText)
 
         fetchButton.setOnClickListener {
@@ -61,8 +62,12 @@ class WeatherActivity : AppCompatActivity() {
             }
         }
 
+        viewModel.weatherLiveData.observe(this) { temperature ->
+            temperatureText.text = "Temperature: ${temperature.main.temp}\u00B0 Celsius"
+        }
+
         viewModel.weatherLiveData.observe(this) { weather ->
-            weatherText.text = "Temperature: ${weather.main.temp}, Weather: ${weather.weather[0].main}"
+            weatherText.text = "Weather: ${weather.weather[0].main}"
         }
 
         viewModel.cityNameLiveData.observe(this) { cityName ->
