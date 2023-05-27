@@ -41,6 +41,12 @@
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
+            android:name=".ui.favorites.FavoritesActivity"
+            android:exported="false"
+            />
+
+        <activity
+
             android:name=".ui.contact.ContactActivity"
             android:exported="false" />
         <activity

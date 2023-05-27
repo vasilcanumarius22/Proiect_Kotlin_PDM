@@ -1,10 +1,13 @@
 package com.example.kotlin_project_pdm.ui.settings
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
 import com.example.kotlin_project_pdm.R
+import com.example.kotlin_project_pdm.ui.favorites.FavoritesActivity
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -17,6 +20,14 @@ class SettingsActivity : AppCompatActivity() {
                 .replace(R.id.settings, SettingsFragment())
                 .commit()
         }
+
+
+        var button = findViewById<Button>(R.id.btnFavorites)
+        button.setOnClickListener {
+            val intent = Intent(applicationContext, FavoritesActivity::class.java)
+            startActivity(intent)
+        }
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
