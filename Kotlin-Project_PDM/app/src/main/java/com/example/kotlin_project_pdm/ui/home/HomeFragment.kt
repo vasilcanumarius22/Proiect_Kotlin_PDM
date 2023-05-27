@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.example.kotlin_project_pdm.databinding.FragmentHomeBinding
-import com.example.kotlin_project_pdm.ui.ourLocation.MapsActivity
+import com.example.kotlin_project_pdm.ui.AboutUsActivity
+import com.example.kotlin_project_pdm.ui.contact.ContactActivity
+import com.example.kotlin_project_pdm.ui.weather.WeatherActivity
 
 class HomeFragment : Fragment() {
 
@@ -34,10 +36,24 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
-        val btn: Button = binding.btnSeeOurLocation
+        val btn: Button = binding.btnAboutUs
 
         btn.setOnClickListener {
-            val intent = Intent(context, MapsActivity::class.java)
+            val intent = Intent(context, AboutUsActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnWeather: Button = binding.btnWeather
+
+        btnWeather.setOnClickListener {
+            val intent = Intent(context, WeatherActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnContact: Button = binding.btnContact
+
+        btnContact.setOnClickListener {
+            val intent = Intent(context, ContactActivity::class.java)
             startActivity(intent)
         }
 
@@ -45,7 +61,7 @@ class HomeFragment : Fragment() {
         var text = "test"
         activity?.let {
             val sp = it.getSharedPreferences("favoritesSP", Context.MODE_PRIVATE)
-            text = sp.getString("username", "error_reading_username").toString()
+            text = "Welcome, "+sp.getString("username", "error_reading_username").toString()+"!"
 
         }
 //        text = activity?.let {

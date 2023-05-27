@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/clouds"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
@@ -14,22 +15,56 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnSeeOurLocation"
-        android:layout_width="238dp"
-        android:layout_height="78dp"
-        android:layout_marginEnd="184dp"
-        android:text="See Our Location"
+        android:textSize="30sp"
+        android:text="Welcome"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.107" />
+
+    <Button
+        android:id="@+id/btnAboutUs"
+        android:layout_width="238dp"
+        android:layout_height="78dp"
+        android:text="About Us"
+        android:textSize="20dp"
+        android:backgroundTint="@color/skyblue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_bias="0.2"></Button>
+        app:layout_constraintVertical_bias="0.082"></Button>
+
+    <Button
+        android:id="@+id/btnWeather"
+        android:layout_width="238dp"
+        android:layout_height="78dp"
+        android:layout_marginBottom="356dp"
+        android:backgroundTint="@color/skyblue"
+        android:text="Weather"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAboutUs"
+        app:layout_constraintVertical_bias="0.553"></Button>
+
+    <Button
+        android:id="@+id/btnContact"
+        android:layout_width="238dp"
+        android:layout_height="78dp"
+        android:layout_marginBottom="244dp"
+        android:backgroundTint="@color/skyblue"
+        android:text="Contact"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnWeather"></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

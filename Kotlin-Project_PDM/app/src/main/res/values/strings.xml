@@ -35,4 +35,5 @@
 
     <string name="vezi_orasele_favorite">Vezi orasele favorite</string>
     <string name="adauga_oras">Adauga oras</string>
+    <string name="title_activity_location">LocationActivity</string>
 </resources>
