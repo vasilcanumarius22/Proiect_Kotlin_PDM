@@ -10,9 +10,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.preference.PreferenceManager
 import com.example.kotlin_project_pdm.databinding.FragmentHomeBinding
-import com.example.kotlin_project_pdm.ui.AboutUsActivity
+import com.example.kotlin_project_pdm.ui.about.AboutUsActivity
 import com.example.kotlin_project_pdm.ui.contact.ContactActivity
 import com.example.kotlin_project_pdm.ui.weather.WeatherActivity
 

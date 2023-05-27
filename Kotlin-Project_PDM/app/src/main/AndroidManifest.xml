@@ -23,14 +23,15 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="GOOGLE_MAPS_API_KEY" />
+            android:value="AIzaSyBqVLxyQqm7vO90zBpkvq4JlyjdASXyKEA" />
 
         <activity
             android:name=".ui.location.LocationActivity"
             android:exported="false"
             android:label="@string/title_activity_location" />
+
         <activity
-            android:name=".ui.AboutUsActivity"
+            android:name=".ui.about.AboutUsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.favorites.FavoritesActivity"

@@ -1,4 +1,4 @@
-package com.example.kotlin_project_pdm.ui
+package com.example.kotlin_project_pdm.ui.about
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
