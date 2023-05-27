@@ -25,12 +25,13 @@
 
     <activity
         android:id="@+id/nav_weather"
-        android:name="com.example.kotlin_project_pdm.WeatherActivity"
+        android:name="com.example.kotlin_project_pdm.ui.weather.WeatherActivity"
         android:label="@string/menu_weather"
         tools:layout="@layout/activity_weather" />
-    <fragment
+    <activity
         android:id="@+id/nav_contact"
-        android:name="com.example.kotlin_project_pdm.ui.contact.ContactFragment"
+        android:name="com.example.kotlin_project_pdm.ui.contact.ContactActivity"
         android:label="@string/CONTACT"
-        tools:layout="@layout/fragment_contact" />
+        tools:layout="@layout/activity_contact" />
+
 </navigation>

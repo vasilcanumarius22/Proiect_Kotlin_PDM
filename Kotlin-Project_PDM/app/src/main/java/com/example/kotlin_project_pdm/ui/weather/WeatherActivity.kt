@@ -1,4 +1,4 @@
-package com.example.kotlin_project_pdm
+package com.example.kotlin_project_pdm.ui.weather
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -20,8 +20,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
+import com.example.kotlin_project_pdm.R
 import com.example.kotlin_project_pdm.database.DatabaseHelper
-import com.example.kotlin_project_pdm.ui.weather.WeatherViewModel
 import com.google.android.gms.location.*
 import java.util.*
 
