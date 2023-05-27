@@ -1,14 +1,17 @@
 package com.example.kotlin_project_pdm.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.example.kotlin_project_pdm.databinding.FragmentHomeBinding
+import com.example.kotlin_project_pdm.ui.ourLocation.MapsActivity
 
 class HomeFragment : Fragment() {
 
@@ -30,6 +33,12 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
+        val btn: Button = binding.btnSeeOurLocation
+
+        btn.setOnClickListener {
+            val intent = Intent(context, MapsActivity::class.java)
+            startActivity(intent)
+        }
 
         // Reading the temperature type from SharedPreferences
         var text = "test"
