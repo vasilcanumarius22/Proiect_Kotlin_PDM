@@ -2,6 +2,7 @@ package com.example.kotlin_project_pdm.ui.contact
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -29,6 +30,17 @@ class ContactActivity : AppCompatActivity() {
             val toastMessage = "Name: $name, Email: $email, Message: $message"
             Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show()
         }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun sendEmail(name: String, senderEmail: String, message: String) {
