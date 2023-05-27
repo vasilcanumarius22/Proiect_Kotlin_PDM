@@ -44,4 +44,6 @@
     <string name="city">CITY</string>
     <string name="temperature">TEMPERATURE</string>
     <string name="actualizeaza_datele">Actualizeaza datele</string>
+
+<!--    etc-->
 </resources>
