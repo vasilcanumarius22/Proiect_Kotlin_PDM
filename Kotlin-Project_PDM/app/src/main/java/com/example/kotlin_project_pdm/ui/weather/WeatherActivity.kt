@@ -150,6 +150,15 @@ class WeatherActivity : AppCompatActivity() {
                     if (addr.isNotEmpty()) {
                         val cityName = addr[0].locality ?: return@let
                         viewModel.fetchWeather(cityName)
+                        viewModel.weatherLiveData.observe(this) {
+
+                            val sp = this.getSharedPreferences("weatherSP", Context.MODE_PRIVATE)
+                            val editor = sp.edit()
+                            editor.putString("city", cityName)
+                            editor.putFloat("temp", it.main.temp.toFloat())
+                            editor.apply()
+
+                        }
                     }
                 }
             }

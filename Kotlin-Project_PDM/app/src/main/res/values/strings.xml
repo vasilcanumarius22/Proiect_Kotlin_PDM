@@ -35,5 +35,13 @@
 
     <string name="vezi_orasele_favorite">Vezi orasele favorite</string>
     <string name="adauga_oras">Adauga oras</string>
+
     <string name="title_activity_location">LocationActivity</string>
+
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="city">CITY</string>
+    <string name="temperature">TEMPERATURE</string>
+    <string name="actualizeaza_datele">Actualizeaza datele</string>
 </resources>
