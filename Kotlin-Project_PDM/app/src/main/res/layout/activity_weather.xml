@@ -14,6 +14,11 @@
         android:layout_height="wrap_content"
         android:hint="Enter City Name"/>
 
+    <Spinner
+        android:id="@+id/spFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/fetchButton"
         android:layout_width="wrap_content"
