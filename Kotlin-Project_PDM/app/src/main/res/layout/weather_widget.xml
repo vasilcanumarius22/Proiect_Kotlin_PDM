@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.KotlinProject_PDM.AppWidget.Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.KotlinProject_PDM.AppWidgetContainer">
+
+    <TextView
+        android:id="@+id/tvCityWidget"
+        style="@style/Widget.KotlinProject_PDM.AppWidget.InnerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/city"
+        android:text="@string/city"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/tvTempWidget"
+        style="@style/Widget.KotlinProject_PDM.AppWidget.InnerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/temperature"
+        android:text="@string/temperature"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+
+</LinearLayout>

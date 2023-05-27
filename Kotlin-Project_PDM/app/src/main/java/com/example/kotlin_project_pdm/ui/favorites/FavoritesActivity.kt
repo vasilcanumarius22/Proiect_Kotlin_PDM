@@ -33,6 +33,9 @@ class FavoritesActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.btnAdaugaOras)
         button.setOnClickListener {
             val dbHelper = DatabaseHelper(applicationContext)
+
+            if(et.text.toString() == "") return@setOnClickListener
+            
             dbHelper.addFavoriteItem(et.text.toString(), userText)
 
 
@@ -45,6 +48,17 @@ class FavoritesActivity : AppCompatActivity() {
                     ArrayAdapter<String>(applicationContext, android.R.layout.simple_list_item_1, it)
                 lvFavorites.adapter = adapter
             }
+        }
+        val dbHelper = DatabaseHelper(applicationContext)
+
+        val favorites  = dbHelper.getFavoritesItems(userText)
+
+        val lvFavorites = findViewById<ListView>(R.id.lvFavorites)
+
+        favorites.let {
+            val adapter =
+                ArrayAdapter<String>(applicationContext, android.R.layout.simple_list_item_1, it)
+            lvFavorites.adapter = adapter
         }
 
 
