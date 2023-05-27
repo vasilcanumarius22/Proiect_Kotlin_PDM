@@ -67,6 +67,8 @@ class LoginActivity : AppCompatActivity() {
                     intent.putExtra("username", username)
                     startActivity(intent)
 
+
+
                 } else {
                     Toast.makeText(applicationContext, "Invalid Credentials", Toast.LENGTH_SHORT).show()
                 }
