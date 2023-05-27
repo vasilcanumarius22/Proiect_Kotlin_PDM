@@ -1,5 +1,6 @@
 package com.example.kotlin_project_pdm.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,10 +34,15 @@ class HomeFragment : Fragment() {
 
         // Reading the temperature type from SharedPreferences
         var text = "test"
-        text = activity?.let {
-            PreferenceManager.getDefaultSharedPreferences(it.getApplicationContext())
-                .getString("tip_temperatura", null).toString()
-        }.toString()
+        activity?.let {
+            val sp = it.getSharedPreferences("favoritesSP", Context.MODE_PRIVATE)
+            text = sp.getString("username", "error_reading_username").toString()
+
+        }
+//        text = activity?.let {
+//            PreferenceManager.getDefaultSharedPreferences(it.getApplicationContext())
+//                .getString("tip_temperatura", null).toString()
+//        }.toString()
 
 
 
