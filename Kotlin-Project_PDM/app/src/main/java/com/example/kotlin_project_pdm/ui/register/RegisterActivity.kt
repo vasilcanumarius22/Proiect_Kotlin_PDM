@@ -1,5 +1,6 @@
 package com.example.kotlin_project_pdm.ui.register
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -13,6 +14,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.kotlin_project_pdm.R
 import com.example.kotlin_project_pdm.database.DatabaseHelper
 import com.example.kotlin_project_pdm.models.User
+import com.example.kotlin_project_pdm.ui.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var databaseHelper: DatabaseHelper
@@ -106,6 +108,8 @@ class RegisterActivity : AppCompatActivity() {
                 val dbHelper = DatabaseHelper(applicationContext)
                 dbHelper.addUser(user)
                 Toast.makeText(applicationContext, "User Registered Successfully", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
             }
         }
     }

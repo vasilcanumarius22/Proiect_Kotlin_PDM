@@ -31,6 +31,9 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
     <string name="vezi_orasele_favorite">Vezi orasele favorite</string>
     <string name="adauga_oras">Adauga oras</string>
+    <string name="title_activity_location">LocationActivity</string>
 </resources>

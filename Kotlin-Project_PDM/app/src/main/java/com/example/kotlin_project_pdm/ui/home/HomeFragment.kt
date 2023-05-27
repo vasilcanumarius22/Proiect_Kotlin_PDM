@@ -1,15 +1,20 @@
 package com.example.kotlin_project_pdm.ui.home
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.example.kotlin_project_pdm.databinding.FragmentHomeBinding
+import com.example.kotlin_project_pdm.ui.AboutUsActivity
+import com.example.kotlin_project_pdm.ui.contact.ContactActivity
+import com.example.kotlin_project_pdm.ui.weather.WeatherActivity
 
 class HomeFragment : Fragment() {
 
@@ -31,12 +36,32 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
+        val btn: Button = binding.btnAboutUs
+
+        btn.setOnClickListener {
+            val intent = Intent(context, AboutUsActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnWeather: Button = binding.btnWeather
+
+        btnWeather.setOnClickListener {
+            val intent = Intent(context, WeatherActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnContact: Button = binding.btnContact
+
+        btnContact.setOnClickListener {
+            val intent = Intent(context, ContactActivity::class.java)
+            startActivity(intent)
+        }
 
         // Reading the temperature type from SharedPreferences
         var text = "test"
         activity?.let {
             val sp = it.getSharedPreferences("favoritesSP", Context.MODE_PRIVATE)
-            text = sp.getString("username", "error_reading_username").toString()
+            text = "Welcome, "+sp.getString("username", "error_reading_username").toString()+"!"
 
         }
 //        text = activity?.let {
