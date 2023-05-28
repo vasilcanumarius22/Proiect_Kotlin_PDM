@@ -9,6 +9,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="home_title">Home</string>
+
     <!-- About Us -->
     <string name="about_us_activity_title">About Us</string>
     <string name="about_us_header">About Us</string>
