@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Fetch Weather"/>
+        android:text="@string/fetch_weather_string"/>
 
 
     <TextView
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Get weather by current location" />
+        android:text="@string/get_current_location_weather_string" />
 
 
 </LinearLayout>
