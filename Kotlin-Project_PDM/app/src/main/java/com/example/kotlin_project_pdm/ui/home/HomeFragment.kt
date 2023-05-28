@@ -15,6 +15,7 @@ import com.example.kotlin_project_pdm.ui.about.AboutUsActivity
 import com.example.kotlin_project_pdm.ui.contact.ContactActivity
 import com.example.kotlin_project_pdm.ui.weather.WeatherActivity
 
+// Home fragment, displays welcome message and navigation buttons.
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -23,13 +24,14 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    // Creates fragment UI, sets up ViewModel, and initializes views and handlers.
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -60,7 +62,7 @@ class HomeFragment : Fragment() {
         var text = "test"
         activity?.let {
             val sp = it.getSharedPreferences("favoritesSP", Context.MODE_PRIVATE)
-            text = "Welcome, "+sp.getString("username", "error_reading_username").toString()+"!"
+            text = "Welcome, " + sp.getString("username", "error_reading_username").toString() + "!"
 
         }
 //        text = activity?.let {
@@ -69,14 +71,15 @@ class HomeFragment : Fragment() {
 //        }.toString()
 
 
-
         homeViewModel.text.observe(viewLifecycleOwner) {
 
-            textView.text = if (text != "null") text else "Trebuie ales din setari un tip de temperatura"
+            textView.text =
+                if (text != "null") text else "Trebuie ales din setari un tip de temperatura"
         }
         return root
     }
 
+    // Cleans up references when view is detached to avoid memory leaks.
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

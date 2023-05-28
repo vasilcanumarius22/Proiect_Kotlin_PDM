@@ -19,11 +19,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlin_project_pdm.databinding.ActivityMainBinding
 import com.example.kotlin_project_pdm.ui.settings.SettingsActivity
 
+// Main activity, handles user preferences and navigation drawer.
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+    // Activity starting point. Initializes layout, user name, and toolbar.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        // TODO: NO DRAWER PLS
+        // NO DRAWER PLS
 //        val drawerLayout: DrawerLayout = binding.drawerLayout
 //        val navView: NavigationView = binding.navView
 //        val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -60,12 +62,14 @@ class MainActivity : AppCompatActivity() {
 //        navView.setupWithNavController(navController)
     }
 
+    // Initializes the activity's options menu.
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
+    // Handles menu menu item (back button, actually).
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_settings -> {
@@ -78,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    // Handles Up button press, navigates up in the app structure.
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

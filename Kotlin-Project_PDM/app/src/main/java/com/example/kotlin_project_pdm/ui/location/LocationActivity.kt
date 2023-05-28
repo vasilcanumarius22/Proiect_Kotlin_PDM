@@ -17,6 +17,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
+// The LocationActivity class/activity displays a map with the business and user's location
 class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
@@ -26,6 +27,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
     }
 
+    // Initial setup of the activity, including map fragment and location client
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
@@ -33,11 +35,13 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        // enable support action bar (used for back button)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
+    // Handles menu menu item (back button, actually).
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
@@ -48,6 +52,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         return super.onOptionsItemSelected(item)
     }
 
+    // Prepares the map when it's ready, adds markers and requests location permission
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
@@ -55,6 +60,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(businessLocation).title("Business Location"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(businessLocation, 15f))
 
+        // Check location permission and enable location if granted
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
             PackageManager.PERMISSION_GRANTED) {
             mMap.isMyLocationEnabled = true
@@ -64,6 +70,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    // Gets the last known location of the device and moves the camera to the current location
     private fun getLocation() {
         if (ActivityCompat.checkSelfPermission(
                 this,
@@ -85,6 +92,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
             }
     }
 
+    // Handles the result of the location permission request, enabling location if granted
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
