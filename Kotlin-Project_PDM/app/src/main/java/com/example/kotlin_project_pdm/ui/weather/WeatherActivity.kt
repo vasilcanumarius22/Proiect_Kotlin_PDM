@@ -104,14 +104,14 @@ class WeatherActivity : AppCompatActivity() {
             tipTemperatura = PreferenceManager.getDefaultSharedPreferences(applicationContext)
                     .getString("tip_temperatura", null).toString()
 
-            if(tipTemperatura == "Celsius")
+            if(tipTemperatura == "Fahrenheit")
             {
-                temperatureText.text = "Temperature: ${temperature.main.temp}\u00B0 Celsius"
-            }
-            else {
                 val tempFahrenheit = (temperature.main.temp * 1.8 + 32)
                 temperatureText.text = "Temperature: ${String.format(
                     "%.2f", tempFahrenheit)}\u00B0 Fahrenheit"
+            }
+            else {
+                temperatureText.text = "Temperature: ${temperature.main.temp}\u00B0 Celsius"
             }
 
         }
@@ -125,7 +125,8 @@ class WeatherActivity : AppCompatActivity() {
         }
 
         // Fetch weather for Bucharest by default
-        viewModel.fetchWeather("Bucharest")
+//        viewModel.fetchWeather("Bucharest")
+        requestLocationUpdates()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

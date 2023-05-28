@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Kotlin-Project_PDM</string>
+    <string name="app_name">Omniweather</string>
+
+    <!-- Other Stuff -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -7,41 +9,44 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <!-- About Us -->
+    <string name="about_us_activity_title">About Us</string>
+    <string name="about_us_header">About Us</string>
 
-    <string name="CONTACT">Contact</string>
-    <string name="CONTACT_US">Contact us</string>
+    <!-- Location -->
+    <string name="location_activity_title">Our Location</string>
 
-    <string name="menu_weather">Weather</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <!-- Weather -->
+    <string name="weather_activity_title">Weather Forecast</string>
+    <string name="get_current_location_weather_string">Get weather by current location</string>
+    <string name="fetch_weather_string">Fetch Weather</string>
 
-    <!-- Preference Titles -->
-    <string name="temperatura_header">Tip temperatura</string>
-    <string name="sync_header">Sync</string>
+    <!-- Contact -->
+    <string name="contact_activity_title">Contact Us</string>
+    <string name="contact_header">Contact Us</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <!-- Settings -->
+    <string name="settings_activity_title">Settings</string>
+    <string name="temperatura_header">Temperature Settings</string>
+    <string name="signature_title">Type of Temperature</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="title_activity_maps">MapsActivity</string>
+    <!-- Favorites -->
+    <string name="favorites_activity_title">Favorite Locations</string>
+    <string name="vezi_orasele_favorite">View Favorite Locations</string>
+    <string name="adauga_oras">Add Favorite Location</string>
 
-    <string name="vezi_orasele_favorite">Vezi orasele favorite</string>
-    <string name="adauga_oras">Adauga oras</string>
-
-    <string name="title_activity_location">LocationActivity</string>
-
+    <!-- Widget -->
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="app_widget_description">This is an app widget description</string>
     <string name="city">CITY</string>
     <string name="temperature">TEMPERATURE</string>
     <string name="actualizeaza_datele">Actualizeaza datele</string>
+
+    <!-- Drawer (not used at the moment, but good to have) -->
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_weather">Weather</string>
+    <string name="menu_contact">Contact</string>
 </resources>

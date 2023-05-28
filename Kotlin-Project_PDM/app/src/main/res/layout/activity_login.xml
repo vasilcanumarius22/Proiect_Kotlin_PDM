@@ -23,12 +23,12 @@
             android:backgroundTint="#cceeff"
             android:background="@drawable/edittext_rounded_bg"
             android:text="Login"
-            android:textSize="70dp"></TextView>
+            android:textSize="70dp" />
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@drawable/umbrella"></ImageView>
+            android:src="@drawable/umbrella" />
 
 
     </LinearLayout>
@@ -68,7 +68,7 @@
             android:layout_width="40dp"
             android:layout_height="50dp"
             android:id="@+id/loginImgPassword"
-            android:src="@drawable/baseline_visibility_off_24"></ImageView>
+            android:src="@drawable/baseline_visibility_off_24" />
 
     </LinearLayout>
 
@@ -95,14 +95,14 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="Don't have an account?"
-            android:textColor="@color/black"></TextView>
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign Up"
             android:id="@+id/tvSignUp"
-            android:textColor="@color/skyblue"></TextView>
+            android:textColor="@color/skyblue" />
     </LinearLayout>
 
 
