@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:background="@drawable/clouds"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:label="@string/home_title">
 
     <TextView
         android:id="@+id/text_home"
@@ -32,12 +33,13 @@
         android:layout_height="78dp"
         android:text="About Us"
         android:textSize="20dp"
+        android:layout_marginBottom="356dp"
         android:backgroundTint="@color/skyblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_bias="0.082"></Button>
+        app:layout_constraintVertical_bias="0.082" />
 
     <Button
         android:id="@+id/btnWeather"
@@ -52,7 +54,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAboutUs"
-        app:layout_constraintVertical_bias="0.553"></Button>
+        app:layout_constraintVertical_bias="0.553" />
 
     <Button
         android:id="@+id/btnContact"
@@ -66,5 +68,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnWeather"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/btnWeather" />
 </androidx.constraintlayout.widget.ConstraintLayout>
