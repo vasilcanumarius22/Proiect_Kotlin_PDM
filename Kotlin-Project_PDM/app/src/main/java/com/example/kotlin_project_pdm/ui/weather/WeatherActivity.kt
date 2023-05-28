@@ -25,20 +25,24 @@ import com.example.kotlin_project_pdm.database.DatabaseHelper
 import com.google.android.gms.location.*
 import java.util.*
 
-
+// WeatherActivity is an AppCompatActivity that displays the current weather for a specific city
+// The user can input the city name manually or use the location service to get the weather for their current location
 class WeatherActivity : AppCompatActivity() {
     private lateinit var viewModel: WeatherViewModel
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
 
+    // The onCreate function sets up the UI when the activity is created.
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
 
+        // Initialize ViewModel and FusedLocationProviderClient
         viewModel = ViewModelProvider(this).get(WeatherViewModel::class.java)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
+        // Initialize views
         val cityInput = findViewById<EditText>(R.id.cityInput)
         val fetchButton = findViewById<Button>(R.id.fetchButton)
         val locationButton = findViewById<Button>(R.id.locationButton)
@@ -46,19 +50,16 @@ class WeatherActivity : AppCompatActivity() {
         val temperatureText = findViewById<TextView>(R.id.temperatureText)
         val cityNameText = findViewById<TextView>(R.id.cityNameText)
 
+        // Fetch weather data when the fetch button is clicked
         fetchButton.setOnClickListener {
             viewModel.fetchWeather(cityInput.text.toString())
         }
 
-        //begin spinner favorites
+        // Get favorite cities from shared preferences and display them in a spinner
         val sp = this.getSharedPreferences("favoritesSP", Context.MODE_PRIVATE)
         val userText = sp.getString("username", "error_reading_username").toString()
-
         val spFavorites = findViewById<Spinner>(R.id.spFavorites)
-
-
         val dbHelper = DatabaseHelper(applicationContext)
-
         val favorites  = dbHelper.getFavoritesItems(userText)
 
         spFavorites.adapter =
@@ -75,12 +76,11 @@ class WeatherActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {
-                // your code here
+                // Nothing (at the moment)
             }
         })
 
-        //end spinner favorites
-
+        // Request location updates when the location button is clicked
         locationButton.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
                     this,
@@ -99,6 +99,7 @@ class WeatherActivity : AppCompatActivity() {
             }
         }
 
+        // Observe changes to weather data and update the UI accordingly
         viewModel.weatherLiveData.observe(this) { temperature ->
             var tipTemperatura = "Celsius"
             tipTemperatura = PreferenceManager.getDefaultSharedPreferences(applicationContext)
@@ -125,12 +126,16 @@ class WeatherActivity : AppCompatActivity() {
         }
 
         // Fetch weather for Bucharest by default
-//        viewModel.fetchWeather("Bucharest")
+        // viewModel.fetchWeather("Bucharest")
+
+        // Fetch weather for the current location when the activity is created
         requestLocationUpdates()
 
+        // enable support action bar (used for back button)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
+    // Handle the up button in the action bar
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
@@ -141,6 +146,7 @@ class WeatherActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    // Request location updates from FusedLocationProviderClient
     @SuppressLint("MissingPermission")
     private fun requestLocationUpdates() {
         fusedLocationProviderClient.getCurrentLocation(LocationRequest.PRIORITY_HIGH_ACCURACY, null).addOnSuccessListener { location ->
@@ -166,12 +172,7 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    // Commented this because app crashes when i click back btn after fetch weather
-//    override fun onPause() {
-//        super.onPause()
-//        fusedLocationProviderClient.removeLocationUpdates(locationCallback)
-//    }
-
+    // Handle the result of the location permission request
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
