@@ -26,7 +26,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBqVLxyQqm7vO90zBpkvq4JlyjdASXyKEA" />
 
-
         <receiver
             android:name=".ui.widget.WeatherWidget"
             android:exported="false">
